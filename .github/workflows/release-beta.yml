@@ -25,7 +25,7 @@ jobs:
         run: ./gradlew --no-daemon dependencies
       - name: Release to github
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
           RELEASE_TARGET: ${{ github.sha }}
           PRERELEASE: true
         run: ./gradlew --no-daemon build githubRelease
