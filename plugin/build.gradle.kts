@@ -12,13 +12,13 @@ val pluginVersion = Version(1, 6, 3)
 
 group = "com.github.appujet"
 version = "$pluginVersion"
-val archivesBaseName = "jiosavvan-plugin"
+val archivesBaseName = "jiosaavan-plugin"
 val preRelease = System.getenv("PRERELEASE") == "true"
 val verName = "${if (preRelease) "PRE_" else ""}$pluginVersion${if(preRelease) "_${System.getenv("GITHUB_RUN_NUMBER")}" else ""}"
 
 
 lavalinkPlugin {
-    name = "jiosavvan-plugin"
+    name = "jiosaavan-plugin"
     path = "$group.lavalinkplugin"
     version = verName
     apiVersion = libs.versions.lavalink.api
