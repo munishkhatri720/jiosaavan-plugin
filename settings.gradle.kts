@@ -1,7 +1,7 @@
-rootProject.name = "jiosavvan-plugin-base"
+rootProject.name = "jiosaavan-plugin-base"
 
 include("plugin")
-project(":plugin").name = "jiosavvan-plugin"
+project(":plugin").name = "jiosaavan-plugin"
 include("source-managers")
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")

@@ -5,7 +5,7 @@ plugins {
 
 project.group = "com.github.appujet"
 project.version = "0.0.1"
-val archivesBaseName = "jiosavvan"
+val archivesBaseName = "jiosaavan"
 
 dependencies {
     compileOnly(libs.lavaplayer)
