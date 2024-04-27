@@ -35,6 +35,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           USERNAME: ${{ secrets.USERNAME }}
           PASSWORD: ${{ secrets.PASSWORD }}
-          # just use master
-          RELEASE_TARGET: master
+          RELEASE_TARGET: main
         run: ./gradlew --no-daemon build publish githubRelease -x test
