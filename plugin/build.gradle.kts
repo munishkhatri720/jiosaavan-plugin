@@ -86,7 +86,7 @@ publishing {
 githubRelease {
     token(System.getenv("GITHUB_TOKEN"))
     owner("appujet")
-    repo("jiosavvan-plugin")
+    repo("jiosaavan-plugin")
     targetCommitish(System.getenv("RELEASE_TARGET"))
     releaseAssets(tasks.shadowJar.get().outputs.files.toList())
     tagName(verName)
@@ -100,7 +100,7 @@ githubRelease {
             |```yml
             |lavalink:
             |    plugins:
-            |        - dependency: "com.github.appujet:jiosavvan-plugin:$verName"
+            |        - dependency: "com.github.appujet:jiosaavan-plugin:$verName"
             |          snapshot: true
             |```
         """.trimMargin())
