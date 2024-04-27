@@ -1,0 +1,15 @@
+/.idea/
+*.iml
+/logs/
+/target/
+*/dependency-reduced-pom.xml
+.gradle/*
+build/*
+*.jar
+!gradle/wrapper/gradle-wrapper.jar
+.project
+.classpath
+.settings
+build/
+out/
+VERSION.txt
