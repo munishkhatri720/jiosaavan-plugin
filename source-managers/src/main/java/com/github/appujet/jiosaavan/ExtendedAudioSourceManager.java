@@ -33,7 +33,7 @@ public abstract class ExtendedAudioSourceManager  implements AudioSourceManager,
         this.httpInterfaceManager = httpInterfaceManager;
 
         if (withoutCookies) {
-            this.httpInterfaceManager.setHttpContextFilter(new FuckCookies());
+            this.httpInterfaceManager.setHttpContextFilter(new Cookies());
         }
     }
 
@@ -56,7 +56,7 @@ public abstract class ExtendedAudioSourceManager  implements AudioSourceManager,
         httpInterfaceManager.configureBuilder(configurator);
     }
 
-    public static class FuckCookies implements HttpContextFilter {
+    public static class Cookies implements HttpContextFilter {
         @Override
         public void onContextOpen(HttpClientContext context) {
             CookieStore cookieStore = context.getCookieStore();

@@ -6,7 +6,7 @@ import com.sedmelluq.discord.lavaplayer.track.AudioTrackInfo;
 import com.sedmelluq.discord.lavaplayer.track.InternalAudioTrack;
 
 public abstract class MpegTrack extends ExtendedAudioTrack {
-    public MpegTrack(AudioTrackInfo trackInfo, ExtendedAudioSourceManager  manager) {
+    public MpegTrack(AudioTrackInfo trackInfo, ExtendedAudioSourceManager manager) {
         super(trackInfo, manager);
     }
 

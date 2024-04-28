@@ -16,9 +16,9 @@ import java.net.URI;
 public class ExtendedAudioTrack extends DelegatedAudioTrack {
     protected static final Logger log = LoggerFactory.getLogger(ExtendedAudioTrack.class);
 
-    private final ExtendedAudioSourceManager  manager;
+    private final ExtendedAudioSourceManager manager;
 
-    public ExtendedAudioTrack(AudioTrackInfo trackInfo, ExtendedAudioSourceManager  manager) {
+    public ExtendedAudioTrack(AudioTrackInfo trackInfo, ExtendedAudioSourceManager manager) {
         super(trackInfo);
         this.manager = manager;
     }
@@ -47,10 +47,6 @@ public class ExtendedAudioTrack extends DelegatedAudioTrack {
         return new Mp3AudioTrack(trackInfo, stream);
     }
 
-    /**
-     * A special helper to determine the length of the file in milliseconds.
-     * @return The clip length in milliseconds, for some sources this needs to be set to unknown for them to properly work.
-     */
     protected long getTrackDuration() {
         return this.trackInfo.length;
     }
@@ -60,7 +56,7 @@ public class ExtendedAudioTrack extends DelegatedAudioTrack {
     }
 
     @Override
-    public ExtendedAudioSourceManager  getSourceManager() {
+    public ExtendedAudioSourceManager getSourceManager() {
         return manager;
     }
 }

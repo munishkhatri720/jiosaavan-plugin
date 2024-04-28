@@ -9,7 +9,7 @@ import com.sedmelluq.discord.lavaplayer.track.AudioTrackInfo;
 
 
 public class JioSaavanAudioTrack extends MpegTrack {
-    private ExtendedAudioSourceManager manager;
+    private final ExtendedAudioSourceManager manager;
     public JioSaavanAudioTrack(AudioTrackInfo trackInfo, ExtendedAudioSourceManager  manager) {
         super(trackInfo, manager);
         this.manager =  manager;

@@ -10,7 +10,7 @@ import java.nio.charset.StandardCharsets;
 
 public class Utils {
 
-    public static JsonBrowser fetchJson(String pageURl, ExtendedAudioSourceManager  sourceManager) {
+    public static JsonBrowser fetchJson(String pageURl, ExtendedAudioSourceManager sourceManager) {
         final HttpGet httpGet = new HttpGet(pageURl);
         try (final CloseableHttpResponse response = sourceManager.getHttpInterface().execute(httpGet)) {
             final String content = IOUtils.toString(response.getEntity().getContent(), StandardCharsets.UTF_8);

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @ConfigurationProperties(prefix = "plugins.jiosaavan")
-public class Config {
+public class JioSaavanConfig {
     private String apiURL = null;
     public String getApiURL() {
         return apiURL;

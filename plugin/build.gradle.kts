@@ -8,7 +8,7 @@ plugins {
     id("com.github.breadmoirai.github-release")
 }
 
-val pluginVersion = Version(0, 0, 1)
+val pluginVersion = Version(0, 0, 2)
 
 group = "com.github.appujet"
 version = "$pluginVersion"
@@ -82,6 +82,7 @@ publishing {
         }
     }
 }
+/*
 
 githubRelease {
     token(System.getenv("GITHUB_TOKEN"))
@@ -108,3 +109,4 @@ githubRelease {
         body(changelog())
     }
 }
+*/

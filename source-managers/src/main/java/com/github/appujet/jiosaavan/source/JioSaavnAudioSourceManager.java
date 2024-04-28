@@ -9,8 +9,6 @@ import com.sedmelluq.discord.lavaplayer.track.*;
 import org.apache.commons.io.IOUtils;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.DataInput;
 import java.io.DataOutput;
@@ -29,7 +27,6 @@ public class JioSaavnAudioSourceManager extends ExtendedAudioSourceManager {
     public static final String SEARCH_PREFIX = "jssearch:";
     public static final String RECOMMENDATIONS_PREFIX = "jsrec:";
 
-    private static final Logger log = LoggerFactory.getLogger(JioSaavnAudioSourceManager.class);
 
     public JioSaavnAudioSourceManager(String apiURL) {
         if (apiURL == null || apiURL.isEmpty()) {
@@ -103,7 +100,7 @@ public class JioSaavnAudioSourceManager extends ExtendedAudioSourceManager {
             return AudioReference.NO_TRACK;
         }
         var tracks = this.fetchJson("/songs?ids=" + song.get("id").text());
-        return this.buildTrack(tracks.get("data").index(0), song.get("id").text());
+        return this.buildTrack(tracks.get("data").index(0));
     }
 
     private AudioItem getTrack(String identifier) throws IOException {
@@ -112,7 +109,7 @@ public class JioSaavnAudioSourceManager extends ExtendedAudioSourceManager {
             return AudioReference.NO_TRACK;
         }
         final JsonBrowser data = json.get("data").index(0);
-        return this.buildTrack(data, identifier);
+        return this.buildTrack(data);
     }
 
     public AudioItem getAlbum(String identifier) {
@@ -128,7 +125,7 @@ public class JioSaavnAudioSourceManager extends ExtendedAudioSourceManager {
         }
         return new JioSaavanAudioPlaylist(
                 data.get("name").text(),
-                this.parseTracks(data.get("songs")),
+                this.buildTracks(data.get("songs")),
                 ExtendedAudioPlaylist.Type.ALBUM,
                 data.get("url").text(),
                 this.parseImage(data.get("image")),
@@ -149,7 +146,7 @@ public class JioSaavnAudioSourceManager extends ExtendedAudioSourceManager {
         }
         return new JioSaavanAudioPlaylist(
                 data.get("name").text(),
-                this.parseTracks(data.get("songs")),
+                this.buildTracks(data.get("songs")),
                 ExtendedAudioPlaylist.Type.PLAYLIST,
                 data.get("url").text(),
                 this.parseImage(data.get("image")),
@@ -170,7 +167,7 @@ public class JioSaavnAudioSourceManager extends ExtendedAudioSourceManager {
         }
         return new JioSaavanAudioPlaylist(
                 data.get("name").text(),
-                this.parseTracks(data.get("topSongs")),
+                this.buildTracks(data.get("topSongs")),
                 ExtendedAudioPlaylist.Type.ARTIST,
                 data.get("url").text(),
                 this.parseImage(data.get("image")),
@@ -189,17 +186,13 @@ public class JioSaavnAudioSourceManager extends ExtendedAudioSourceManager {
         if (data.isNull()) {
             return AudioReference.NO_TRACK;
         }
-        var tracks = new ArrayList<AudioTrack>();
-        for (var track : data.values()) {
-            var parsedTrack = this.buildTrack(track, track.get("id").text());
-            if (parsedTrack != null) {
-                tracks.add(parsedTrack);
-            }
-        }
+
+        var tracks = this.buildTracks(data);
+
         return new JioSaavanAudioPlaylist(
                 "Recommendations",
                 tracks,
-                ExtendedAudioPlaylist.Type.PLAYLIST,
+                ExtendedAudioPlaylist.Type.RECOMMENDATIONS,
                 null,
                 null,
                 null,
@@ -217,10 +210,10 @@ public class JioSaavnAudioSourceManager extends ExtendedAudioSourceManager {
         }
     }
 
-    private List<AudioTrack> parseTracks(JsonBrowser json) {
+    private List<AudioTrack> buildTracks(JsonBrowser json) {
         var tracks = new ArrayList<AudioTrack>();
         for (var track : json.values()) {
-            var parsedTrack = this.buildTrack(track, track.get("id").text());
+            var parsedTrack = this.buildTrack(track);
             if (parsedTrack != null) {
                 tracks.add(parsedTrack);
             }
@@ -228,7 +221,7 @@ public class JioSaavnAudioSourceManager extends ExtendedAudioSourceManager {
         return tracks;
     }
 
-    private AudioTrack buildTrack(JsonBrowser data, String identifier) {
+    private AudioTrack buildTrack(JsonBrowser data) {
         if (data.isNull()) {
             return null;
         }
