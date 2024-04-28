@@ -3,6 +3,7 @@
 - This is a plugin for [Lavalink](https://github.com/lavalink-devs/Lavalink)
 - This plugin allows you to play songs from JioSaavn in your discord server.
 - This plugin uses the [JioSaavn API](https://github.com/sumitkolhe/jiosaavn-api) to fetch songs.
+- Special thanks to [topi314](https://github.com/topi314/LavaSrc) and [duncte123](https://github.com/duncte123) because most of the code of this plugin is based on [Lavasrc](https://github.com/topi314/LavaSrc) and [skybot-lavalink-plugin](https://github.com/DuncteBot/skybot-lavalink-plugin).
 
 
 ## Configuration
