@@ -82,7 +82,6 @@ publishing {
         }
     }
 }
-/*
 
 githubRelease {
     token(System.getenv("GITHUB_TOKEN"))
@@ -109,4 +108,3 @@ githubRelease {
         body(changelog())
     }
 }
-*/
