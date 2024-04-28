@@ -9,10 +9,6 @@
 
 For all supported urls and queries see [here](#supported-urls-and-queries)
 
-To get your Spotify clientId & clientSecret go [here](https://developer.spotify.com/dashboard/applications) & then copy them into your `application.yml` like the following.
-
-To get your Apple Music api token go [here](#apple-music)
-
 To get your Yandex Music access token go [here](#yandex-music)
 
 (YES `plugins` IS AT ROOT IN THE YAML)
@@ -51,7 +47,7 @@ lavalink:
 
 plugins:
   jiosaavan:
-    apiURL: "" # JioSaavn API URL
+    apiURL: "https://saavn.dev/api" # JioSaavn API URL
 
 metrics:
   prometheus:
@@ -91,6 +87,15 @@ logging:
 * https://www.jiosaavn.com/album/bhediya/wSM2AOubajk_
 * https://www.jiosaavn.com/artist/arijit-singh-songs/LlRWpHzy3Hk_
 * https://www.jiosaavn.com/featured/jai-hanuman/8GIEhrr8clSO0eMLZZxqsA__
+
+## How to get API URL ?
+* You can host the api locally using [this guide](https://github.com/sumitkolhe/jiosaavn-api)
+* You can easily deploy your own instance of the API by clicking the button below:
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/sumitkolhe/jiosaavn-api)
+
+> [!TIP]
+> To ensure the API provides results in the intended language, configure the [Serverless Function Region](https://vercel.com/docs/concepts/functions/serverless-functions/regions) in Vercel to `Mumbai, India (South) - > bom1`.
 
 
 
