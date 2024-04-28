@@ -9,8 +9,6 @@
 
 For all supported urls and queries see [here](#supported-urls-and-queries)
 
-To get your Yandex Music access token go [here](#yandex-music)
-
 (YES `plugins` IS AT ROOT IN THE YAML)
 ```yaml
 server: # REST and WS server
