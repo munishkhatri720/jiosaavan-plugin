@@ -38,4 +38,21 @@ You can easily deploy your own instance of the API by clicking the button below:
 > [!TIP]
 > To ensure the API provides results in the intended language, configure the [Serverless Function Region](https://vercel.com/docs/concepts/functions/serverless-functions/regions) in Vercel to `Mumbai, India (South) - > bom1`.
 
-## 🚀 Usage
+
+## Advantages of Using JioSaavn
+
+* No region-based content blocking (unlike Deezer and Yandex).
+* A better alternative for playing mirrored audio sources not dependent on YouTube.
+* Similar content library size as Spotify and Apple Music.
+* Superior to Deezer as it doesn't require any decryption key and provides slightly higher bitrate audio than Deezer's 128KBPS MP3.
+
+## Supported URLs and Queries
+### JioSaavan
+* `jssearch:animals architects`
+* https://www.jiosaavn.com/song/apna-bana-le/ATIfejZ9bWw
+* https://www.jiosaavn.com/album/bhediya/wSM2AOubajk_
+* https://www.jiosaavn.com/artist/arijit-singh-songs/LlRWpHzy3Hk_
+* https://www.jiosaavn.com/featured/jai-hanuman/8GIEhrr8clSO0eMLZZxqsA__
+
+
+
